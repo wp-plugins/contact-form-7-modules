@@ -15,7 +15,7 @@ Add hidden fields to the popular Contact Form 7 plugin
 
 The Contact Form 7 plugin has over 2.8 <em>million</em> downloads, yet the great plugin still lacks a simple feature: hidden fields. This plugin adds hidden fields to Contact Form 7 once and for all.
 
-> <strong>You may also be interested in the <a href="http://sn.im/gravityforms" rel="nofollow">Gravity Forms plugin</a></strong>. Gravity Forms is a revolutionary contact form plugin that does everything Contact Form 7 does...and tons of brilliant stuff Contact Form 7 can not. <a href="http://sn.im/gravityforms" rel="nofollow">Check out Gravity Forms today!</a>
+> <strong>You may also be interested in the <a href="http://bit.ly/dvF8BI" rel="nofollow">Gravity Forms plugin</a></strong>. Gravity Forms is a revolutionary contact form plugin that does everything Contact Form 7 does...and tons of brilliant stuff Contact Form 7 can not. <a href="http://bit.ly/dvF8BI" rel="nofollow">Check out Gravity Forms today!</a>
 
 == Installation ==
 
