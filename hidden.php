@@ -5,7 +5,7 @@ Plugin URI: http://www.seodenver.com/contact-form-7-hidden-fields/
 Description: Add hidden fields to the popular Contact Form 7 plugin.
 Author: Katz Web Services, Inc.
 Author URI: http://www.katzwebservices.com
-Version: 1.0
+Version: 1.1
 */
 
 /*  Copyright 2010 Katz Web Services, Inc. (email: info at katzwebservices.com)
@@ -108,15 +108,33 @@ function wpcf7_hidden_shortcode_handler( $tag ) {
 	if ( wpcf7_is_posted() )
 		$value = stripslashes_deep( $_POST[$name] );
 
-	if ( $id_att )
+	if ( $id_att ) {
+		$id_att = trim( $id_att );
 		$atts .= ' id="' . trim( $id_att ) . '"';
-
+	}
 	if ( $class_att )
 		$atts .= ' class="' . trim( $class_att ) . '"';
 
+	global $post;
+	if(is_object($post)) {
+		if (strtolower($value) == 'post_title') { $value = $post->post_title; }
+		if (strtolower($value) == 'post_url') { $value = $post->guid; }
+		if (strtolower($value) == 'post_category') {
+			$categories = get_the_category();$catnames = array();
+			foreach($categories as $cat) { $catnames[] = $cat->cat_name; }
+			if(is_array($catnames)) { $value = implode(', ', $catnames); }
+		}
+		if (strtolower($value) == 'post_author') { $value = $post->post_author; }
+		if (strtolower($value) == 'post_date') { $value = $post->post_date; }
+		if (preg_match('/^custom_field\-(.*?)$/ism', $value)) {
+			$custom_field = preg_replace('/custom_field\-(.*?)/ism', '$1', $value);
+			$value = get_post_meta($post->ID, $custom_field, true) ? get_post_meta($post->ID, $custom_field, true) : '';
+		}
+	}
+	
+	$value = apply_filters('wpcf7_hidden_field_value', apply_filters('wpcf7_hidden_field_value_'.$id_att, $value));
+	
 	$html = '<input type="hidden" name="' . $name . '" value="' . esc_attr( $value ) . '"' . $atts . ' />';
-
-	$html = $html;
 
 	return $html;
 }
