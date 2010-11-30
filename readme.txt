@@ -18,7 +18,7 @@ The Contact Form 7 plugin has over 2.8 <em>million</em> downloads, yet the great
 
 #### Inserting dynamic values
 
-You can also choose to have the value of the hidden field dynamically populated. To do so, choose the "Default value" to be:
+You can also choose to have the value of the hidden field dynamically populated in your form when you are contacted. To do so, choose the "Default value" to be:
 
 * `post-title` - Inserts the title of the post/page
 * `post_category` - The categories of the post or page
