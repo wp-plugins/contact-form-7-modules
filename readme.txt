@@ -1,7 +1,7 @@
 === Contact Form 7 Modules ===
-Tags: contact form 7, contactform7, contact form, hidden fields, hidden, cf7, cforms ii, cforms, Contact Forms 7, Contact Forms, contacted, contacts
+Tags: form, forms, contact form 7, contactform7, contact form, hidden fields, hidden, cf7, cforms ii, cforms, Contact Forms 7, Contact Forms, contacted, contacts
 Requires at least: 2.8
-Tested up to: 3.0.1
+Tested up to: 3.0.4
 Stable tag: trunk
 Contributors: katzwebdesign
 Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=zackkatz%40gmail%2ecom&item_name=Contact%20Form%207%20Modules&no_shipping=0&no_note=1&tax=0&currency_code=USD&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8
@@ -52,7 +52,10 @@ Now, when someone contacts you using your Contact Form 7 contact form, you can h
 
 == Changelog ==
 
-= 1.0.1 =
+= 1.1.1 =
+* Fixed `Parameter 1 to wpcf7_add_tag_generator_hidden() expected to be a reference, value given` error, <a href="http://www.seodenver.com/contact-form-7-hidden-fields/#comment-116384456"> as reported by BDN Online</a>
+
+= 1.1 =
 * Added support for using post titles as hidden fields
 * Added support for using custom field values as hidden fields
 * Added `wpcf7_hidden_field_value` filter to hook into using <a href="http://codex.wordpress.org/Function_Reference/add_filter" rel="nofollow"><code>add_filter()</code></a>
@@ -62,7 +65,10 @@ Now, when someone contacts you using your Contact Form 7 contact form, you can h
 
 == Upgrade Notice ==
 
-= 1.0.1 =
+= 1.1.1 =
+* Fixed `Parameter 1 to wpcf7_add_tag_generator_hidden() expected to be a reference, value given` error, <a href="http://www.seodenver.com/contact-form-7-hidden-fields/#comment-116384456"> as reported by BDN Online</a>
+
+= 1.1 =
 * Added support for using post titles as hidden fields
 * Added support for using custom field values as hidden fields
 * Added `wpcf7_hidden_field_value` filter to hook into using <a href="http://codex.wordpress.org/Function_Reference/add_filter" rel="nofollow"><code>add_filter()</code></a>

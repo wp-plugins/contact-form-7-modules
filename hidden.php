@@ -5,10 +5,10 @@ Plugin URI: http://www.seodenver.com/contact-form-7-hidden-fields/
 Description: Add hidden fields to the popular Contact Form 7 plugin.
 Author: Katz Web Services, Inc.
 Author URI: http://www.katzwebservices.com
-Version: 1.1
+Version: 1.1.1
 */
 
-/*  Copyright 2010 Katz Web Services, Inc. (email: info at katzwebservices.com)
+/*  Copyright 2011 Katz Web Services, Inc. (email: info at katzwebservices.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -144,14 +144,14 @@ function wpcf7_hidden_shortcode_handler( $tag ) {
 
 add_action( 'admin_init', 'wpcf7_add_tag_generator_hidden', 30 );
 
-function wpcf7_add_tag_generator_hidden(& $contact_form) {
+function wpcf7_add_tag_generator_hidden() {
 	if(function_exists('wpcf7_add_tag_generator')) {
 		wpcf7_add_tag_generator( 'hidden', __( 'Hidden field', 'wpcf7' ),
 		'wpcf7-tg-pane-hidden', 'wpcf7_tg_pane_hidden' );
 	}
 }
 
-function wpcf7_tg_pane_hidden( &$contact_form ) {
+function wpcf7_tg_pane_hidden() {
 ?>
 <div id="wpcf7-tg-pane-hidden" class="hidden">
 <form action="">
