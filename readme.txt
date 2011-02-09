@@ -1,7 +1,7 @@
 === Contact Form 7 Modules ===
 Tags: form, forms, contact form 7, contactform7, contact form, hidden fields, hidden, cf7, cforms ii, cforms, Contact Forms 7, Contact Forms, contacted, contacts
 Requires at least: 2.8
-Tested up to: 3.0.4
+Tested up to: 3.1
 Stable tag: trunk
 Contributors: katzwebdesign
 Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=zackkatz%40gmail%2ecom&item_name=Contact%20Form%207%20Modules&no_shipping=0&no_note=1&tax=0&currency_code=USD&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8
@@ -20,7 +20,7 @@ The Contact Form 7 plugin has over 2.8 <em>million</em> downloads, yet the great
 
 You can also choose to have the value of the hidden field dynamically populated in your form when you are contacted. To do so, choose the "Default value" to be:
 
-* `post-title` - Inserts the title of the post/page
+* `post_title` - Inserts the title of the post/page
 * `post_category` - The categories of the post or page
 * `post_url` - The URL of the post or page
 * `post_author` - The author of the post or page
