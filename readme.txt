@@ -1,7 +1,7 @@
 === Contact Form 7 Modules ===
 Tags: Contact Form 7, form, forms, contactform7, contact form, hidden fields, hidden, cf7, cforms ii, cforms, Contact Forms 7, Contact Forms, contacted, contacts
 Requires at least: 2.8
-Tested up to: 3.1
+Tested up to: 3.2.1
 Stable tag: trunk
 Contributors: katzwebdesign
 Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=zackkatz%40gmail%2ecom&item_name=Contact%20Form%207%20Modules&no_shipping=0&no_note=1&tax=0&currency_code=USD&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8
@@ -9,14 +9,6 @@ Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=zackka
 Contact Form 7 - Add useful modules such as hidden fields and "send all fields" to the Contact Form 7 plugin
 
 == Description ==
-
-### Send all submitted fields at once
-
-####Save time setting up your form emails...and never miss a field!
-
-One of the limitations of Contact Form 7 is that you need to manually add each field to generated emails. This means that if you update the form with a new field and forget to add it to your email message, you won't receive it in your email. <strong>No longer.</strong>.
-
-Using the <strong>Send All Fields</strong> module, you simply need to add `[all-fields]` to your message, and you will receive every field submitted. If you use HTML formatting, the formatting even looks nice.
 
 ### Add Hidden Fields to Contact Form 7
 
@@ -35,6 +27,14 @@ You can also choose to have the value of the hidden field dynamically populated 
 <strong>You can also use a filter:</strong> hook into the `wpcf7_hidden_field_value` filter to modify the value of the hidden field  using <a href="http://codex.wordpress.org/Function_Reference/add_filter" rel="nofollow"><code>add_filter()</code></a>. If you know the ID of the input, you can also use the `wpcf7_hidden_field_value_[#ID]` filter.
 
 Now, when someone contacts you using your Contact Form 7 contact form, you can have lots more information about their visit - and you'll see it when you receive the email that tells you you've been contacted.
+
+### Easily Email All Submitted Fields
+
+####Save time setting up your form emails...and never miss a field!
+
+One of the limitations of Contact Form 7 is that you need to manually add each field to generated emails. This means that if you update the form with a new field and forget to add it to your email message, you won't receive it in your email. <strong>No longer.</strong>.
+
+Using the <strong>Send All Fields</strong> module, you simply need to add `[all-fields]` to your message, and you will receive every field submitted. If you use HTML formatting, the formatting even looks nice.
 
 <h4>Visit the official <a href="http://www.seodenver.com/contact-form-7-hidden-fields/">Contact Form 7 Modules plugin page</a> for more support & additional information</h4>
 
