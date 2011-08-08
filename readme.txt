@@ -12,7 +12,7 @@ Contact Form 7 - Add useful modules such as hidden fields and "send all fields" 
 
 ### Add Hidden Fields to Contact Form 7
 
-The Contact Form 7 plugin has over 4.2 <em>million</em> downloads, yet the great plugin still lacks a simple feature: hidden fields. This plugin adds hidden fields to Contact Form 7 once and for all.
+The Contact Form 7 plugin has over <em>4 million</em> downloads, yet the great plugin still lacks a simple feature: <strong>hidden fields</strong>. This plugin adds hidden fields to Contact Form 7 once and for all.
 
 #### Inserting dynamic values
 
@@ -28,7 +28,7 @@ You can also choose to have the value of the hidden field dynamically populated 
 
 Now, when someone contacts you using your Contact Form 7 contact form, you can have lots more information about their visit - and you'll see it when you receive the email that tells you you've been contacted.
 
-### Easily Email All Submitted Fields
+### Easily Send All Submitted Fields At Once
 
 ####Save time setting up your form emails...and never miss a field!
 
@@ -58,6 +58,9 @@ Using the <strong>Send All Fields</strong> module, you simply need to add `[all-
 
 == Changelog ==
 
+= 1.2.1 =
+* Added support for checkboxes with Send All Fields (`[all-fields]`)
+
 = 1.2 =
 * Hidden fields are now displayed inside a hidden `<div>` instead of Contact Form 7's default `<p>`. This makes hidden fields more hidden :-)
 * Added brand-new module: Send All Fields. Allows you to add a `[all-fields]` tag to your email message that includes every submitted field in one tag.
@@ -74,6 +77,9 @@ Using the <strong>Send All Fields</strong> module, you simply need to add `[all-
 * Initial plugin release.
 
 == Upgrade Notice ==
+
+= 1.2.1 =
+* Added support for checkboxes with Send All Fields (`[all-fields]`)
 
 = 1.2 =
 * Hidden fields are now displayed inside a hidden `<div>` instead of Contact Form 7's default `<p>`. This makes hidden fields more hidden :-)

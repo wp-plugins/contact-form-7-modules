@@ -59,6 +59,9 @@ function hidden_wpcf7_before_send_mail($array) {
 	
 	$postbody = ''; if($html) { $postbody = '<dl>'; }
 	foreach($post as $k => $v) {
+		if(is_array($v)) {
+			$v = implode(', ', $v);
+		}
 		if($html) {
 			$postbody .= "<dt style='font-size:1.2em;'><font size='3'><strong>{$k}</strong>:</font></dt><dd style='padding:0 0 .5em 1.5em; margin:0;'>{$v}</dd>";
 		} else {
