@@ -5,7 +5,7 @@ Plugin URI: http://www.seodenver.com/contact-form-7-hidden-fields/
 Description: Send all submitted fields in the message body using one simple tag: <code>[all-fields]</code>
 Author: Katz Web Services, Inc.
 Author URI: http://www.katzwebservices.com
-Version: 1.2
+Version: 1.2.1
 */
 
 /*  Copyright 2011 Katz Web Services, Inc. (email: info at katzwebservices.com)

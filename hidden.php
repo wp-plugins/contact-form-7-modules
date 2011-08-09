@@ -5,7 +5,7 @@ Plugin URI: http://www.seodenver.com/contact-form-7-hidden-fields/
 Description: Add hidden fields to the popular Contact Form 7 plugin.
 Author: Katz Web Services, Inc.
 Author URI: http://www.katzwebservices.com
-Version: 1.2
+Version: 1.2.1
 */
 
 /*  Copyright 2011 Katz Web Services, Inc. (email: info at katzwebservices.com)
