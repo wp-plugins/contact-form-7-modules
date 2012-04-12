@@ -12,7 +12,7 @@ Contact Form 7 - Add useful modules such as hidden fields and "send all fields" 
 
 ### Add Hidden Fields to Contact Form 7
 
-The Contact Form 7 plugin has over <em>4 million</em> downloads, yet the great plugin still lacks a simple feature: <strong>hidden fields</strong>. This plugin adds hidden fields to Contact Form 7 once and for all.
+The Contact Form 7 plugin has over <em>6.5 million</em> downloads, yet the great plugin still lacks a simple feature: <strong>hidden fields</strong>. This plugin adds hidden fields to Contact Form 7 once and for all.
 
 #### Inserting dynamic values
 
