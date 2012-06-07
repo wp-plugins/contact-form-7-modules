@@ -15,7 +15,7 @@ function contact_form_7_modules_gf() {
 	if($pagenow == 'admin.php' && isset($_REQUEST['page']) && $_REQUEST['page'] == 'wpcf7' && !get_option('cf7_modules_hide_gf_message')) {
 	?>
 	<div class="updated">
-		<p><a href="http://katz.si/?con=banner" title="Gravity Forms Contact Form Plugin for WordPress"><img src="http://gravityforms.s3.amazonaws.com/banners/728x90.gif" alt="Gravity Forms Plugin for WordPress" width="728" height="90" style="border:none;" /></a></p>
+		<p><a href="http://katz.si/gf?con=banner" title="Gravity Forms Contact Form Plugin for WordPress"><img src="http://gravityforms.s3.amazonaws.com/banners/728x90.gif" alt="Gravity Forms Plugin for WordPress" width="728" height="90" style="border:none;" /></a></p>
 		<h3>If you like Contact Form 7, you'll love <a href="http://katz.si/gf?con=headline" target="_blank">Gravity Forms</a>.</h3>
 		<p>Gravity Forms is a revolutionary contact form plugin that does everything Contact Form 7 does...and tons of amazing stuff Contact Form 7 can not. Gravity Forms has awesome support and out-of-the-box functionality. <a href="http://katz.si/gf" target="_blank" style="white-space:nowrap; font-weight:bold;">Check out Gravity Forms today!</a></p>
 		<hr style="outline:none; border:none; border-bottom:1px solid #ccc;"/>
