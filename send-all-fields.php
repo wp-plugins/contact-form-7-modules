@@ -5,7 +5,7 @@ Plugin URI: http://www.seodenver.com/contact-form-7-hidden-fields/
 Description: Send all submitted fields in the message body using one simple tag: <code>[all-fields]</code>
 Author: Katz Web Services, Inc.
 Author URI: http://www.katzwebservices.com
-Version: 1.2.1
+Version: 1.2.2
 */
 
 /*  Copyright 2011 Katz Web Services, Inc. (email: info at katzwebservices.com)
@@ -51,7 +51,7 @@ function hidden_wpcf7_before_send_mail($array) {
 	if(wpautop($array['body']) == $array['body']) { $html = true; }
 	
 	foreach($post as $k => $v) {
-		if(substr($k, 0, 6) == '_wpcf7' || strpos($k, 'all-fields')) {
+		if(substr($k, 0, 6) == '_wpcf7' || strpos($k, 'all-fields') || $k === '_wpnonce') {
 			unset($post["{$k}"]);
 		}
 	}
@@ -86,8 +86,7 @@ add_action( 'admin_init', 'wpcf7_add_tag_generator_all_fields', 30 );
 
 function wpcf7_add_tag_generator_all_fields() {
 	if(function_exists('wpcf7_add_tag_generator')) {
-		wpcf7_add_tag_generator( 'hidden', __( 'All Fields', 'wpcf7' ),
-		'wpcf7-tg-pane-all-fields', 'wpcf7_tg_pane_all_fields' );
+		wpcf7_add_tag_generator( 'all-fields', __( 'All Fields', 'wpcf7' ), 'wpcf7-tg-pane-all-fields', 'wpcf7_tg_pane_all_fields' );
 	}
 }
 
@@ -103,4 +102,3 @@ function wpcf7_tg_pane_all_fields() {
 </div>
 <?php
 }
-?>

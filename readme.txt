@@ -1,7 +1,7 @@
 === Contact Form 7 Modules ===
 Tags: Contact Form 7, form, forms, contactform7, contact form, hidden fields, hidden, cf7, cforms ii, cforms, Contact Forms 7, Contact Forms, contacted, contacts
 Requires at least: 2.8
-Tested up to: 3.2.1
+Tested up to: 3.4.2
 Stable tag: trunk
 Contributors: katzwebdesign
 Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=zackkatz%40gmail%2ecom&item_name=Contact%20Form%207%20Modules&no_shipping=0&no_note=1&tax=0&currency_code=USD&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8
@@ -12,7 +12,7 @@ Contact Form 7 - Add useful modules such as hidden fields and "send all fields" 
 
 ### Add Hidden Fields to Contact Form 7
 
-The Contact Form 7 plugin has over <em>6.5 million</em> downloads, yet the great plugin still lacks a simple feature: <strong>hidden fields</strong>. This plugin adds hidden fields to Contact Form 7 once and for all.
+The Contact Form 7 plugin has over <em>8.4 million</em> downloads, yet the great plugin still lacks a simple feature: <strong>hidden fields</strong>. This plugin adds hidden fields to Contact Form 7 once and for all.
 
 #### Inserting dynamic values
 
@@ -58,6 +58,10 @@ Using the <strong>Send All Fields</strong> module, you simply need to add `[all-
 
 == Changelog ==
 
+= 1.2.2 =
+* Removed `_wpnonce` field from `[all-fields]` output
+* Fixed a conflict when using "Send All Fields" module alongside "Hidden Fields" module (<a href="http://wordpress.org/support/topic/plugin-contact-form-7-modules-all-fields-doesn«t-work-wit-wordpress-33">as reported here</a>)
+
 = 1.2.1 =
 * Added support for checkboxes with Send All Fields (`[all-fields]`)
 
@@ -77,6 +81,10 @@ Using the <strong>Send All Fields</strong> module, you simply need to add `[all-
 * Initial plugin release.
 
 == Upgrade Notice ==
+
+= 1.2.2 =
+* Removed `_wpnonce` field from `[all-fields]` output
+* Fixed a conflict when using "Send All Fields" module alongside "Hidden Fields" module (<a href="http://wordpress.org/support/topic/plugin-contact-form-7-modules-all-fields-doesn«t-work-wit-wordpress-33">as reported here</a>)
 
 = 1.2.1 =
 * Added support for checkboxes with Send All Fields (`[all-fields]`)
