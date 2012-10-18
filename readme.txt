@@ -58,6 +58,10 @@ Using the <strong>Send All Fields</strong> module, you simply need to add `[all-
 
 == Changelog ==
 
+= 1.2.2 =
+* Removed `_wpnonce` field from `[all-fields]` output
+* Fixed a conflict when using "Send All Fields" module alongside "Hidden Fields" module (<a href="http://wordpress.org/support/topic/plugin-contact-form-7-modules-all-fields-doesn´t-work-wit-wordpress-33">as reported here</a>)
+
 = 1.2.1 =
 * Added support for checkboxes with Send All Fields (`[all-fields]`)
 
