@@ -5,10 +5,10 @@ Plugin URI: http://www.seodenver.com/contact-form-7-hidden-fields/
 Description: Add hidden fields to the popular Contact Form 7 plugin.
 Author: Katz Web Services, Inc.
 Author URI: http://www.katzwebservices.com
-Version: 1.2.2
+Version: 1.2.3
 */
 
-/*  Copyright 2011 Katz Web Services, Inc. (email: info at katzwebservices.com)
+/*  Copyright 2012 Katz Web Services, Inc. (email: info at katzwebservices.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -31,7 +31,7 @@ Version: 1.2.2
 
 add_action('admin_init', 'load_contact_form_7_modules_functions');
 
-if(!function_exists('load_contact_form_7_modules_functions')) { 
+if(!function_exists('load_contact_form_7_modules_functions')) {
 	function load_contact_form_7_modules_functions() {
 		include_once('functions.php');
 	}
@@ -63,7 +63,7 @@ function contact_form_7_hidden_fields() {
 			} else {
 				$out .= 'The Contact Form 7 plugin must be installed for the Hidden Fields Module to work. <a href="'.admin_url('plugin-install.php?tab=plugin-information&plugin=contact-form-7&from=plugins&TB_iframe=true&width=600&height=550').'" class="thickbox" title="Contact Form 7">Install Now.</a>';
 			}
-			$out .= '</p></div>';	
+			$out .= '</p></div>';
 			echo $out;
 		}
 	}
@@ -76,6 +76,7 @@ function contact_form_7_hidden_fields() {
 /* Shortcode handler */
 
 function wpcf7_hidden_shortcode_handler( $tag ) {
+
 	if ( ! is_array( $tag ) )
 		return '';
 
@@ -129,26 +130,34 @@ function wpcf7_hidden_shortcode_handler( $tag ) {
 
 	global $post;
 	if(is_object($post)) {
-		if (strtolower($value) == 'post_title' || strtolower($value) == 'post-title') { $value = $post->post_title; }
-		if (strtolower($value) == 'post_url') { $value = $post->guid; }
-		if (strtolower($value) == 'post_category') {
+		if (strtolower($name) == 'post_title' || strtolower($name) == 'post-title') {   $value = $post->post_title; }
+		if (strtolower($name) == 'post_url') { $value = $post->guid; }
+		if (strtolower($name) == 'post_category') {
 			$categories = get_the_category();$catnames = array();
 			foreach($categories as $cat) { $catnames[] = $cat->cat_name; }
 			if(is_array($catnames)) { $value = implode(', ', $catnames); }
 		}
-		if (strtolower($value) == 'post_author') { $value = $post->post_author; }
-		if (strtolower($value) == 'post_date') { $value = $post->post_date; }
-		if (preg_match('/^custom_field\-(.*?)$/ism', $value)) {
-			$custom_field = preg_replace('/custom_field\-(.*?)/ism', '$1', $value);
+		if (strtolower($name) == 'post_author') { $value = $post->post_author; }
+		if (strtolower($name) == 'post_date') { $value = $post->post_date; }
+		if (preg_match('/^custom_field\-(.*?)$/ism', $name)) {
+			$custom_field = preg_replace('/custom_field\-(.*?)/ism', '$1', $name);
 			$value = get_post_meta($post->ID, $custom_field, true) ? get_post_meta($post->ID, $custom_field, true) : '';
 		}
 	}
-	
+
 	$value = apply_filters('wpcf7_hidden_field_value', apply_filters('wpcf7_hidden_field_value_'.$id_att, $value));
-	
+
 	$html = '<input type="hidden" name="' . $name . '" value="' . esc_attr( $value ) . '"' . $atts . ' />';
 
 	return $html;
+}
+
+add_filter('wpcf7_hidden_field_value_example', 'wpcf7_hidden_field_add_query_arg');
+function wpcf7_hidden_field_add_query_arg($value = '') {
+	if(isset($_GET['category'])) {
+		return $_GET['category'];
+	}
+	return $value;
 }
 
 

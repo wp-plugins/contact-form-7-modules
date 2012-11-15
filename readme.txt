@@ -1,7 +1,7 @@
 === Contact Form 7 Modules ===
 Tags: Contact Form 7, form, forms, contactform7, contact form, hidden fields, hidden, cf7, cforms ii, cforms, Contact Forms 7, Contact Forms, contacted, contacts
 Requires at least: 2.8
-Tested up to: 3.4.2
+Tested up to: 3.5
 Stable tag: trunk
 Contributors: katzwebdesign
 Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=zackkatz%40gmail%2ecom&item_name=Contact%20Form%207%20Modules&no_shipping=0&no_note=1&tax=0&currency_code=USD&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8
@@ -57,6 +57,9 @@ Using the <strong>Send All Fields</strong> module, you simply need to add `[all-
 * This plugin is released under a GPL license.
 
 == Changelog ==
+
+= 1.2.3 =
+* Fixed issue with advanced hidden field usage not posting properly (`post_title`, `custom_field`, `post_url`, etc)
 
 = 1.2.2 =
 * Removed `_wpnonce` field from `[all-fields]` output
