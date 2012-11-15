@@ -4,7 +4,7 @@ add_action('admin_notices', 'contact_form_7_modules_gf');
 
 function contact_form_7_modules_gf() {
 	global $pagenow;
-	delete_option('cf7_modules_hide_gf_message');
+
 	if(!current_user_can('install_plugins')) { return; }
 
 	$message = (int)get_option('cf7_modules_hide_gf_message');
