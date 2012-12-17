@@ -26,10 +26,10 @@ You can also choose to have the value of the hidden field dynamically populated 
 
 The following values will be replaced if an user is logged in:
 
-`user_name` - User Login
-`user_id` - User ID
-`user_email` - User Email Address
-`user_display_name` - Display Name (Generally the first and last name of the user)
+* `user_name` - User Login
+* `user_id` - User ID
+* `user_email` - User Email Address
+* `user_display_name` - Display Name (Generally the first and last name of the user)
 
 <strong>You can also use a filter:</strong> hook into the `wpcf7_hidden_field_value` filter to modify the value of the hidden field  using <a href="http://codex.wordpress.org/Function_Reference/add_filter" rel="nofollow"><code>add_filter()</code></a>. If you know the ID of the input, you can also use the `wpcf7_hidden_field_value_[#ID]` filter.
 
