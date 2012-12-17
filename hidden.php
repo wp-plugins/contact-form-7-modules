@@ -5,7 +5,7 @@ Plugin URI: http://www.seodenver.com/contact-form-7-hidden-fields/
 Description: Add hidden fields to the popular Contact Form 7 plugin.
 Author: Katz Web Services, Inc.
 Author URI: http://www.katzwebservices.com
-Version: 1.2.3
+Version: 1.3
 */
 
 /*  Copyright 2012 Katz Web Services, Inc. (email: info at katzwebservices.com)
@@ -130,18 +130,49 @@ function wpcf7_hidden_shortcode_handler( $tag ) {
 
 	global $post;
 	if(is_object($post)) {
+
+		// Add support for new CF7 format
+		if(preg_match('/hidden/ism', $name)) {
+			$name = isset($values[0]) ? $values[0] : $name;
+		}
+
+		// You want post_modified? just use [hidden hidden-123 "post_modified"]
+		if(isset($post->{$name})) {
+			$value = $post->{$name};
+		}
+
 		if (strtolower($name) == 'post_title' || strtolower($name) == 'post-title') {   $value = $post->post_title; }
-		if (strtolower($name) == 'post_url') { $value = $post->guid; }
+		if (strtolower($name) == 'post_url') {
+			$value =  get_permalink($post->ID);
+			if(empty($value) && isset($post->guid)) {
+				$value = $post->guid;
+			}
+		}
 		if (strtolower($name) == 'post_category') {
 			$categories = get_the_category();$catnames = array();
 			foreach($categories as $cat) { $catnames[] = $cat->cat_name; }
 			if(is_array($catnames)) { $value = implode(', ', $catnames); }
 		}
-		if (strtolower($name) == 'post_author') { $value = $post->post_author; }
+		if (strtolower($name) == 'post_author_id') {
+			$value = $post->post_author;
+		}
+		if (strtolower($name) == 'post_author') {
+			$user = get_userdata($post->post_author);
+			$value = $user->display_name;
+		}
 		if (strtolower($name) == 'post_date') { $value = $post->post_date; }
 		if (preg_match('/^custom_field\-(.*?)$/ism', $name)) {
 			$custom_field = preg_replace('/custom_field\-(.*?)/ism', '$1', $name);
 			$value = get_post_meta($post->ID, $custom_field, true) ? get_post_meta($post->ID, $custom_field, true) : '';
+		}
+
+		if (preg_match('/user/ism', $name) && is_user_logged_in()) {
+			global $current_user;
+	      	get_currentuserinfo();
+	      	if (strtolower($name) == 'user_name') { $value = $current_user->user_login; }
+			if (strtolower($name) == 'user_id') { $value = $current_user->ID; }
+			if (strtolower($name) == 'user_email') { $value = $current_user->user_email; }
+			if (strtolower($name) == 'user_display_name') { $value = $current_user->display_name; }
 		}
 	}
 
@@ -185,10 +216,29 @@ function wpcf7_tg_pane_hidden() {
 </tr>
 
 <tr>
-<td><?php echo esc_html( __( 'Default value', 'wpcf7' ) ); ?> (<?php echo esc_html( __( 'optional', 'wpcf7' ) ); ?>)<br /><input type="text" name="values" class="oneline" /></td>
+<td>
+	<?php echo esc_html( __( 'Default value', 'wpcf7' ) ); ?> (<?php echo esc_html( __( 'optional', 'wpcf7' ) ); ?>)<br /><input type="text" name="values" class="oneline" />
+	<br /><input type="checkbox" name="watermark" class="option" />&nbsp;<?php echo esc_html( __( 'Use this text as watermark?', 'wpcf7' ) ); ?>
+
+</td>
 
 <td>
-<br /><input type="checkbox" name="watermark" class="option" />&nbsp;<?php echo esc_html( __( 'Use this text as watermark?', 'wpcf7' ) ); ?>
+	<?php _e('Dynamic Values', 'wpcf7_modules'); ?><br />
+	<span class="howto" style="font-size:1em;"><?php _e('To use dynamic data from the post or page the form is embedded on, you can use the following values:', 'wpcf7_modules'); ?></span>
+	<ul>
+		<li><code>post_title</code>: The title of the post/page</li>
+		<li><code>post_url</code>: The URL of the post/page</li>
+		<li><code>post_category</code>: The categories the post is in, comma-separated</li>
+		<li><code>post_date</code>: The date the post/page was created</li>
+		<li><code>post_author</code>: The name of the author of the post/page</li>
+	</ul>
+	<span class="howto">The following values will be replaced if an user is logged in:</span>
+	<ul>
+		<li><code>user_name</code>: User Login</li>
+		<li><code>user_id</code>: User ID</li>
+		<li><code>user_email</code>: User Email Address</li>
+		<li><code>user_display_name</code>: Display Name (Generally the first and last name of the user)</li>
+	</ul>
 </td>
 </tr>
 </table>

@@ -5,7 +5,7 @@ Plugin URI: http://www.seodenver.com/contact-form-7-hidden-fields/
 Description: Send all submitted fields in the message body using one simple tag: <code>[all-fields]</code>
 Author: Katz Web Services, Inc.
 Author URI: http://www.katzwebservices.com
-Version: 1.2.3
+Version: 1.3
 */
 
 /*  Copyright 2012 Katz Web Services, Inc. (email: info at katzwebservices.com)
@@ -62,6 +62,10 @@ function hidden_wpcf7_before_send_mail($array) {
 		if(is_array($v)) {
 			$v = implode(', ', $v);
 		}
+
+        // Make the fields easier to read. Thanks, @hitolonen
+        $k = str_replace("-", " ", $k);
+
 		if($html) {
 			$postbody .= "<dt style='font-size:1.2em;'><font size='3'><strong>{$k}</strong>:</font></dt><dd style='padding:0 0 .5em 1.5em; margin:0;'>{$v}</dd>";
 		} else {
@@ -72,9 +76,11 @@ function hidden_wpcf7_before_send_mail($array) {
 
 	if($debug) { print_r($postbody); }
 
-	$postbody = $wpdb->prepare($postbody); // Sanitize!
+	$postbody = esc_attr($postbody);
 
 	$array['body'] = str_replace('<p>[all-fields]</p>', $postbody, str_replace('[all-fields]', $postbody, $array['body']));
+
+    return $array;
 
 	if($debug) { die(); } else { return $array; }
 }
