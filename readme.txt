@@ -1,9 +1,9 @@
 === Contact Form 7 Modules ===
 Tags: Contact Form 7, form, forms, contactform7, contact form, hidden fields, hidden, cf7, cforms ii, cforms, Contact Forms 7, Contact Forms, contacted, contacts
 Requires at least: 2.8
-Tested up to: 3.4.2
+Tested up to: 3.5
 Stable tag: trunk
-Contributors: katzwebdesign
+Contributors: katzwebdesign, katzwebservices
 Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=zackkatz%40gmail%2ecom&item_name=Contact%20Form%207%20Modules&no_shipping=0&no_note=1&tax=0&currency_code=USD&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8
 
 Contact Form 7 - Add useful modules such as hidden fields and "send all fields" to the Contact Form 7 plugin
@@ -23,6 +23,13 @@ You can also choose to have the value of the hidden field dynamically populated 
 * `post_url` - The URL of the post or page
 * `post_author` - The author of the post or page
 * `custom_field-[Name]` - The value of a post or page's custom field. If you had a custom field "Foo", you would use the following as the hidden field value: `custom_field-Foo`
+
+The following values will be replaced if an user is logged in:
+
+`user_name` - User Login
+`user_id` - User ID
+`user_email` - User Email Address
+`user_display_name` - Display Name (Generally the first and last name of the user)
 
 <strong>You can also use a filter:</strong> hook into the `wpcf7_hidden_field_value` filter to modify the value of the hidden field  using <a href="http://codex.wordpress.org/Function_Reference/add_filter" rel="nofollow"><code>add_filter()</code></a>. If you know the ID of the input, you can also use the `wpcf7_hidden_field_value_[#ID]` filter.
 
