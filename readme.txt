@@ -52,11 +52,24 @@ Using the <strong>Send All Fields</strong> module, you simply need to add `[all-
 
 == Frequently Asked Questions ==
 
+= How do I turn off formatting the key in the `[all-fields]` output? =
+Add the following to your theme's `functions.php` file:
+
+`
+add_filter('wpcf7_send_all_fields_format_key', '__return_false');
+`
+
 = What is the plugin license? =
 
 * This plugin is released under a GPL license.
 
 == Changelog ==
+
+= 1.3.1 =
+* Fixed: issue in Hidden Fields where the `[hidden-###]` shortcode no longer worked and only `[post_title]` format worked.
+    * Added: Hidden fields now support both formats: `[hidden-123]` and `[post_title]` as long as they're in the form itself.
+* Fixed: issue in Send All Fields where the <a href="http://wordpress.org/support/topic/post_title-hidden-field-no-longer-working#post-3708463">HTML was showing as text</a>.
+* Added `wpcf7_send_all_fields_format_key` filter to Send All Fields plugin to turn on or off formatting of the key (replacing `example-key` with `Example Key` in output). See "How do I turn off formatting the key in the `[all-fields]` output?" in the FAQ.
 
 = 1.3 =
 * Fixed: Hidden field now supports new Contact Form 7 format; post fields will work again.
@@ -90,6 +103,10 @@ Using the <strong>Send All Fields</strong> module, you simply need to add `[all-
 * Initial plugin release.
 
 == Upgrade Notice ==
+
+= 1.3.1 =
+* Fixed: issue in Hidden Fields where the `[hidden-###]` shortcode no longer worked and only `[post_title]` format worked.
+* Fixed: issue in Send All Fields where the <a href="http://wordpress.org/support/topic/post_title-hidden-field-no-longer-working#post-3708463">HTML was showing as text</a>.
 
 = 1.3 =
 * Fixed: Hidden field now supports new Contact Form 7 format; post fields will work again.
