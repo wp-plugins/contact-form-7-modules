@@ -66,7 +66,7 @@ add_filter('wpcf7_send_all_fields_format_key', '__return_false');
 == Changelog ==
 
 = 1.3.3 =
-* Hidden Fields: Fixed issue that broke the plugin with the latest Contact Form 7
+* Hidden Fields: Fixed issue that broke the plugin with WordPress 3.8.
 
 = 1.3.2 =
 * Hidden Fields: Fixed PHP notice caused by improper adding of script in administration
@@ -112,7 +112,7 @@ add_filter('wpcf7_send_all_fields_format_key', '__return_false');
 == Upgrade Notice ==
 
 = 1.3.3 =
-* Hidden Fields: Fixed issue that broke the plugin with the latest Contact Form 7
+* Hidden Fields: Fixed issue that broke the plugin with the WordPress 3.8
 
 = 1.3.2 =
 * Hidden Fields: Fixed PHP notice caused by improper adding of script in administration
