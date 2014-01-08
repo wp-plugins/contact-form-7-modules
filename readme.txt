@@ -1,7 +1,7 @@
 === Contact Form 7 Modules ===
 Tags: Contact Form 7, form, forms, contactform7, contact form, hidden fields, hidden, cf7, cforms ii, cforms, Contact Forms 7, Contact Forms, contacted, contacts
 Requires at least: 2.8
-Tested up to: 3.4.2
+Tested up to: 3.8
 Stable tag: trunk
 Contributors: katzwebdesign
 Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=zackkatz%40gmail%2ecom&item_name=Contact%20Form%207%20Modules&no_shipping=0&no_note=1&tax=0&currency_code=USD&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8
@@ -65,6 +65,9 @@ add_filter('wpcf7_send_all_fields_format_key', '__return_false');
 
 == Changelog ==
 
+= 1.3.3 =
+* Hidden Fields: Fixed issue that broke the plugin with the latest Contact Form 7
+
 = 1.3.2 =
 * Hidden Fields: Fixed PHP notice caused by improper adding of script in administration
 * Hidden Fields: Fixed double inputs that were the exact same (<a href="http://wordpress.org/support/topic/render-the-fields-twice">as reported here</a>)
@@ -107,6 +110,13 @@ add_filter('wpcf7_send_all_fields_format_key', '__return_false');
 * Initial plugin release.
 
 == Upgrade Notice ==
+
+= 1.3.3 =
+* Hidden Fields: Fixed issue that broke the plugin with the latest Contact Form 7
+
+= 1.3.2 =
+* Hidden Fields: Fixed PHP notice caused by improper adding of script in administration
+* Hidden Fields: Fixed double inputs that were the exact same (<a href="http://wordpress.org/support/topic/render-the-fields-twice">as reported here</a>)
 
 = 1.3.1 =
 * Fixed: issue in Hidden Fields where the `[hidden-###]` shortcode no longer worked and only `[post_title]` format worked.
