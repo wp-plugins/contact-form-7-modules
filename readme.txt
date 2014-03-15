@@ -89,17 +89,24 @@ To get the values of WordPress default profile fields, for example, you would us
 
 * This plugin is released under a GPL license.
 
+= Is the plugin available in other languages? =
+
+Not yet, so [help translate the plugin!](https://www.transifex.com/projects/p/contact-form-7-modules/)
+
 == Changelog ==
 
-= 1.4 on March 15, 2014 =
-__Only the Hidden Fields module was updated in this release.__
+= 1.4 & 1.4.1 on March 15, 2014 =
+* Added: Internationalization support. [Help translate the plugin!](https://www.transifex.com/projects/p/contact-form-7-modules/)
+
+__The below updates apply only to the Hidden Fields module.__
 
 * Added: Support for retrieving other user data by using the field name `user_{data you want}`. See the FAQ "How do I set non-standard user data as hidden field values?"
 * Added: `wpcf7_hidden_field_implode_glue` filter. If you want to modify how arrays of data get combined into a string (default is CSV), use this filter.
 * Fixed: `$post` global no longer needs to be defined for user data to be successfully passed.
 * Fixed: Now supports multiple post `custom_field` data values, instead of only fetching one
 * Modified: Added callback function to format the hidden field instead of relying on depricated PHP
-* Modified: Improved Localization
+* Modified: Improved include path for `functions.php` file
+* Modified: Added text to support additional localization
 
 = 1.3.3 =
 * Hidden Fields: Fixed issue that broke the plugin with WordPress 3.8.

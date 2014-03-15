@@ -5,7 +5,9 @@ Plugin URI: https://katz.co/contact-form-7-hidden-fields/
 Description: Add hidden fields to the popular Contact Form 7 plugin.
 Author: Katz Web Services, Inc.
 Author URI: http://www.katzwebservices.com
-Version: 1.4
+Version: 1.4.1
+Text Domain: cf7_modules
+Domain Path: languages
 */
 
 /*  Copyright 2014 Katz Web Services, Inc. (email: info at katzwebservices.com)
@@ -24,6 +26,14 @@ Version: 1.4
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
+
+add_action('init', 'contact_form_7_hidden_fields_textdomain');
+
+function contact_form_7_hidden_fields_textdomain() {
+	// Load the default language files
+	load_plugin_textdomain( 'cf7_modules', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+}
+
 
 add_action('plugins_loaded', 'contact_form_7_hidden_fields', 11);
 
@@ -254,7 +264,7 @@ add_action( 'admin_init', 'wpcf7_add_tag_generator_hidden', 30 );
 
 function wpcf7_add_tag_generator_hidden() {
 	if(function_exists('wpcf7_add_tag_generator')) {
-		wpcf7_add_tag_generator( 'hidden', __( 'Hidden field', 'wpcf7' ), 'wpcf7-tg-pane-hidden', 'wpcf7_tg_pane_hidden' );
+		wpcf7_add_tag_generator( 'hidden', __( 'Hidden field', 'cf7_modules' ), 'wpcf7-tg-pane-hidden', 'wpcf7_tg_pane_hidden' );
 	}
 }
 
@@ -264,44 +274,44 @@ function wpcf7_tg_pane_hidden() {
 <form action="">
 
 <table>
-<tr><td><?php echo esc_html( __( 'Name', 'wpcf7' ) ); ?><br /><input type="text" name="name" class="tg-name oneline" /></td><td></td></tr>
+<tr><td><?php echo esc_html( __( 'Name', 'cf7_modules' ) ); ?><br /><input type="text" name="name" class="tg-name oneline" /></td><td></td></tr>
 
 <tr>
-<td><code>id</code> (<?php echo esc_html( __( 'optional', 'wpcf7' ) ); ?>)<br />
+<td><code>id</code> (<?php echo esc_html( __( 'optional', 'cf7_modules' ) ); ?>)<br />
 <input type="text" name="id" class="idvalue oneline option" /></td>
 </tr>
 
 <tr>
 <td>
-	<?php echo esc_html( __( 'Default value', 'wpcf7' ) ); ?> (<?php echo esc_html( __( 'optional', 'wpcf7' ) ); ?>)<br /><input type="text" name="values" class="oneline" />
-	<br /><input type="checkbox" name="watermark" class="option" />&nbsp;<?php echo esc_html( __( 'Use this text as watermark?', 'wpcf7' ) ); ?>
+	<?php echo esc_html( __( 'Default value', 'cf7_modules' ) ); ?> (<?php echo esc_html( __( 'optional', 'cf7_modules' ) ); ?>)<br /><input type="text" name="values" class="oneline" />
+	<br /><input type="checkbox" name="watermark" class="option" />&nbsp;<?php echo esc_html( __( 'Use this text as watermark?', 'cf7_modules' ) ); ?>
 
 </td>
 
 <td>
-	<?php _e('Dynamic Values', 'wpcf7'); ?><br />
-	<span class="howto" style="font-size:1em;"><?php _e('To use dynamic data from the post or page the form is embedded on, you can use the following values:', 'wpcf7'); ?></span>
+	<?php _e('Dynamic Values', 'cf7_modules'); ?><br />
+	<span class="howto" style="font-size:1em;"><?php _e('To use dynamic data from the post or page the form is embedded on, you can use the following values:', 'cf7_modules'); ?></span>
 	<ul>
-		<li><?php _e('<code>post_title</code>: The title of the post/page', 'wpcf7'); ?></li>
-		<li><?php _e('<code>post_url</code>: The URL of the post/page', 'wpcf7'); ?></li>
-		<li><?php _e('<code>post_category</code>: The categories the post is in, comma-separated', 'wpcf7'); ?></li>
-		<li><?php _e('<code>post_date</code>: The date the post/page was created', 'wpcf7'); ?></li>
-		<li><?php _e('<code>post_author</code>: The name of the author of the post/page', 'wpcf7'); ?></li>
+		<li><?php _e('<code>post_title</code>: The title of the post/page', 'cf7_modules'); ?></li>
+		<li><?php _e('<code>post_url</code>: The URL of the post/page', 'cf7_modules'); ?></li>
+		<li><?php _e('<code>post_category</code>: The categories the post is in, comma-separated', 'cf7_modules'); ?></li>
+		<li><?php _e('<code>post_date</code>: The date the post/page was created', 'cf7_modules'); ?></li>
+		<li><?php _e('<code>post_author</code>: The name of the author of the post/page', 'cf7_modules'); ?></li>
 	</ul>
-	<span class="howto"><?php _e('The following values will be replaced if an user is logged in:', 'wpcf7'); ?></span>
+	<span class="howto"><?php _e('The following values will be replaced if an user is logged in:', 'cf7_modules'); ?></span>
 	<ul>
-		<li><?php _e('<code>user_name</code>: User Login', 'wpcf7'); ?></li>
-		<li><?php _e('<code>user_id</code>: User ID', 'wpcf7'); ?></li>
-		<li><?php _e('<code>user_email</code>: User Email Address', 'wpcf7'); ?></li>
-		<li><?php _e('<code>user_display_name</code>: Display Name (Generally the first and last name of the user)', 'wpcf7'); ?></li>
+		<li><?php _e('<code>user_name</code>: User Login', 'cf7_modules'); ?></li>
+		<li><?php _e('<code>user_id</code>: User ID', 'cf7_modules'); ?></li>
+		<li><?php _e('<code>user_email</code>: User Email Address', 'cf7_modules'); ?></li>
+		<li><?php _e('<code>user_display_name</code>: Display Name (Generally the first and last name of the user)', 'cf7_modules'); ?></li>
 	</ul>
 </td>
 </tr>
 </table>
 
-<div class="tg-tag"><?php echo esc_html( __( "Copy this code and paste it into the form left.", 'wpcf7' ) ); ?><br /><input type="text" name="hidden" class="tag" readonly="readonly" onfocus="this.select()" /></div>
+<div class="tg-tag"><?php echo esc_html( __( "Copy this code and paste it into the form left.", 'cf7_modules' ) ); ?><br /><input type="text" name="hidden" class="tag" readonly="readonly" onfocus="this.select()" /></div>
 
-<div class="tg-mail-tag"><?php echo esc_html( __( "And, put this code into the Mail fields below.", 'wpcf7' ) ); ?><br /><input type="text" class="mail-tag" readonly="readonly" onfocus="this.select()" /></div>
+<div class="tg-mail-tag"><?php echo esc_html( __( "And, put this code into the Mail fields below.", 'cf7_modules' ) ); ?><br /><input type="text" class="mail-tag" readonly="readonly" onfocus="this.select()" /></div>
 </form>
 </div>
 <?php
