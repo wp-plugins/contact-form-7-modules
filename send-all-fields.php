@@ -5,7 +5,7 @@ Plugin URI: https://katz.co/contact-form-7-hidden-fields/
 Description: Send all submitted fields in the message body using one simple tag: <code>[all-fields]</code>
 Author: Katz Web Services, Inc.
 Author URI: http://www.katzwebservices.com
-Version: 1.4.1
+Version: 1.4.2
 Text Domain: cf7_modules
 Domain Path: languages
 */
@@ -67,12 +67,21 @@ function all_fields_wpcf7_before_send_mail($array) {
 
 	$postbody = '';
 
-    if($html) { $postbody = '<dl>'; }
+    if($html) {
+    	$postbody = apply_filters( 'wpcf7_send_all_fields_format_before' , '<dl>', 'html');
+    } else {
+    	$postbody = apply_filters( 'wpcf7_send_all_fields_format_before' , '', 'text');
+    }
 
 	foreach($post as $k => $v) {
 
         // Remove dupe content. The Hidden and Values are both sent.
         if(preg_match('/hidden\-/', $k)) { continue; }
+
+        // If there's no value for the field, don't send it.
+        if(empty($v) && false === apply_filters( 'wpcf7_send_all_fields_send_empty_fields' , false )) {
+        	continue;
+        }
 
         if(is_array($v)) {
 			$v = implode(', ', $v);
@@ -86,12 +95,16 @@ function all_fields_wpcf7_before_send_mail($array) {
         $v = esc_attr($v);
 
 		if($html) {
-			$postbody .= "<dt style='font-size:1.2em;'><font size='3'><strong style='font-weight:bold;'>{$k}</strong>:</font></dt><dd style='padding:0 0 .5em 1.5em; margin:0;'>{$v}</dd>";
+			$postbody .= apply_filters( 'wpcf7_send_all_fields_format_item', "<dt style='font-size:1.2em;'><font size='3'><strong style='font-weight:bold;'>{$k}</strong>:</font></dt><dd style='padding:0 0 .5em 1.5em; margin:0;'>{$v}</dd>", $k, $v, 'html');
 		} else {
-			$postbody .= "{$k}: {$v}\n";
+			$postbody .= apply_filters( 'wpcf7_send_all_fields_format_item', "{$k}: {$v}\n", $k, $v, 'text');
 		}
 	}
-	if($html) { $postbody .= '</dl>'; }
+	if($html) {
+		$postbody .= apply_filters( 'wpcf7_send_all_fields_format_after' , '</dl>', 'html');
+	} else {
+		$postbody .= apply_filters( 'wpcf7_send_all_fields_format_after' , '', 'text');
+	}
 
 	if($debug) { print_r($postbody); }
 

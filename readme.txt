@@ -93,7 +93,33 @@ To get the values of WordPress default profile fields, for example, you would us
 
 Not yet, so [help translate the plugin!](https://www.transifex.com/projects/p/contact-form-7-modules/)
 
+= How do I send empty values with the `[all-fields]` shortcode? =
+
+Add this to your `functions.php` file: `add_filter('wpcf7_send_all_fields_send_empty_fields', '__return_true');`
+
+= How do I modify the output of the `[all-fields]` shortcode? =
+
+* `wpcf7_send_all_fields_format_before` - Before the loop of fields (`<dl>` for HTML output)
+	* `$value` _string_ Previous output
+	* `$format` _string_ Either "html" or "text"
+* `wpcf7_send_all_fields_format_item` - Change each item output. Passes four arguments:
+	* `$value` _string_ Previous output
+	* `$k` _string_ Field label
+	* `$v` _string_ Value of the field
+	* `$format` _string_ Either "html" or "text"
+* `wpcf7_send_all_fields_format_after` - After the loop of fields (`</dl>` for HTML output). Passes two arguments:
+	* `$value` _string_ Previous output
+	* `$format` _string_ Either "html" or "text"
+
 == Changelog ==
+
+= 1.4.2 on March 25, 2014 =
+* Added: `[all-fields]` shortcode now skips sending data for empty fields
+	* Added `wpcf7_send_all_fields_send_empty_fields` filter to override the setting. See the FAQ.
+* Added: `[all-fields]` shortcode output filters (see the FAQ item "How do I modify the output...")
+	* `wpcf7_send_all_fields_format_before`
+	* `wpcf7_send_all_fields_format_item`
+	* `wpcf7_send_all_fields_format_after`
 
 = 1.4 & 1.4.1 on March 15, 2014 =
 * Added: Internationalization support. [Help translate the plugin!](https://www.transifex.com/projects/p/contact-form-7-modules/)
@@ -154,15 +180,26 @@ __The below updates apply only to the Hidden Fields module.__
 
 == Upgrade Notice ==
 
-= 1.4 =
-__Only the Hidden Fields module was updated in this release.__
+= 1.4.2 on March 25, 2014 =
+* Added: `[all-fields]` shortcode now skips sending data for empty fields
+	* Added `wpcf7_send_all_fields_send_empty_fields` filter to override the setting. See the FAQ.
+* Added: `[all-fields]` shortcode output filters (see the FAQ item "How do I modify the output...")
+	* `wpcf7_send_all_fields_format_before`
+	* `wpcf7_send_all_fields_format_item`
+	* `wpcf7_send_all_fields_format_after`
+
+= 1.4 & 1.4.1 on March 15, 2014 =
+* Added: Internationalization support. [Help translate the plugin!](https://www.transifex.com/projects/p/contact-form-7-modules/)
+
+__The below updates apply only to the Hidden Fields module.__
 
 * Added: Support for retrieving other user data by using the field name `user_{data you want}`. See the FAQ "How do I set non-standard user data as hidden field values?"
 * Added: `wpcf7_hidden_field_implode_glue` filter. If you want to modify how arrays of data get combined into a string (default is CSV), use this filter.
 * Fixed: `$post` global no longer needs to be defined for user data to be successfully passed.
 * Fixed: Now supports multiple post `custom_field` data values, instead of only fetching one
 * Modified: Added callback function to format the hidden field instead of relying on depricated PHP
-* Modified: Improved Localization
+* Modified: Improved include path for `functions.php` file
+* Modified: Added text to support additional localization
 
 = 1.3.3 =
 * Hidden Fields: Fixed issue that broke the plugin with the WordPress 3.8
